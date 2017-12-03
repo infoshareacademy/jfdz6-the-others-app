@@ -1,3 +1,21 @@
+.app {
+  background-color: black;
+  color: antiquewhite;
+}
+
+#signup-login {
+  background-color: black;
+  color: antiquewhite;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 35px;
+  padding-top: 40px;
+  text-align: center;
+}
+
+#noLogin {
+  padding-bottom: 20px;
+}
+
 .formhidden {
   display: none
 }
@@ -5,3 +23,4 @@
 .formvisible {
   display: block
 }
+
