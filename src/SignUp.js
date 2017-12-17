@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './App.css'
 
-class Login extends Component {
+class SignUp extends Component {
 
   state = {
     showLoginForm: false,
@@ -17,18 +17,19 @@ class Login extends Component {
 
   render() {
     return (
-
-      <div className="login">
-        <span className="login" onClick={this.toggleForm} data-form-id="showSignUpForm">LOGOWANIE</span>
-        <form action="#" className={'login ' + (this.state.showSignUpForm ? 'formvisible' : 'formhidden')}>
+      <div className="signup">
+        <span className="signup" onClick={this.toggleForm} data-form-id="showLoginForm">REJESTRACJA</span>
+        <form action="#" className={'signup ' + (this.state.showLoginForm ? 'formvisible' : 'formhidden')}>
+          Imię: <input type="text" name="fname"/> <br/>
+          Nazwisko: <input type="text" name="lname"/> <br/>
+          E-mail: <input type="text" name="email"/> <br/>
           Login: <input type="text" name="login"/> <br/>
           Hasło: <input type="text" name="password"/> <br/>
           <input type="submit" value="Wyślij"/> <br/>
         </form>
       </div>
-    );
-
+    )
   }
 }
 
-export default Login
+export default SignUp
