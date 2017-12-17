@@ -18,7 +18,8 @@ const config = {
 firebase.initializeApp(config);
 
 const reducer = combineReducers({
-  auth
+  auth,
+  data:[]
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
