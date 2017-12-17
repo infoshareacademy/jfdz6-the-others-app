@@ -29,3 +29,12 @@ body {
 .formvisible {
   display: block
 }
+
+#scroll-bg {
+  height: 100vh;
+  width: 100%;
+  background: url(Assets/Photos/cropped-girl-sitting-on-a-bus-14857.jpg) no-repeat scroll top;
+  background-size: cover;
+  opacity: 0.8;
+  margin-top: -20px;
+}
