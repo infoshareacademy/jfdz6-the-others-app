@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './App.css'
-import { connect } from 'react-redux'
-import { signUp } from './state/auth'
+import {connect} from 'react-redux'
+import {signUp} from './state/auth'
 
 
 class SignUp extends Component {
@@ -38,7 +38,8 @@ class SignUp extends Component {
     return (
       <div className="signup">
         <span className="signup" onClick={this.toggleForm} data-form-id="showSignUpForm">REJESTRACJA</span>
-        <form action="#" className={'signup ' + (this.state.showSignUpForm ? 'formvisible' : 'formhidden')} onSubmit={this.handleSubmit}>
+        <form action="#" className={'signup ' + (this.state.showSignUpForm ? 'formvisible' : 'formhidden')}
+              onSubmit={this.handleSubmit}>
           E-mail: <input type="text" name="login" onChange={this.handleChange}/> <br/>
           Hasło: <input type="password" name="password" onChange={this.handleChange}/> <br/>
           <input type="submit" value="Wyślij"/> <br/>
