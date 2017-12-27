@@ -7,7 +7,7 @@
     background-color: hsla(0, 0%, 100%, 0.5);
     color: rgba(89, 77, 77, 1);
     font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: vh;
+    font-size: 2vh;
     text-align: center;
     border-radius: 5%;
 }
@@ -92,11 +92,11 @@
     margin: 4%;
 }
 
-.preview-h1 > h1 {
+h1 {
     text-align: center;
     font-weight: bold;
     color: white;
-    font-size: 2.0vw;
+    font-size: 3.0vw;
     padding-top: 5%;
     background-color: hsla(0, 0%, 100%, 0.5);
 }
@@ -105,14 +105,42 @@
     width: 100%;
 }
 
+@media screen and (max-width: 900px) {
+	 h1 {
+	     font-size: 4.0vw;	 
+	 }
+}
+
 @media screen and (max-width: 768px) {
-    .preview-img, .info {
+	 .preview-container {
+	 	  display: block;
+	 	  align-items: center;
+	 }
+	 
+	 .preview {
+		  width: 60%;
+		  margin: 0 auto;	 
+	 }	 
+	 
+    .info {
         width: 100%;
+        margin: 0 auto;
     }
 
-    #signup-login: {
-        width: 50%;
+	 .info div {
+		  padding: 1.5em;	 
+	 }
+		
+    #signup-login {
+        width: 100%;
     }
+}
+
+@media screen and (max-width: 400px) {
+	 h1 {
+	     font-size: 6.0vw;	 
+	 }
+	
 }
 
 .img-responsive {
@@ -125,6 +153,8 @@
 /*The End of Preview*/
 
 footer {
+	 font-size: 1.5vh;
+	 padding-top: 10vh;
     text-align: center;
     bottom: 1%;
 }
