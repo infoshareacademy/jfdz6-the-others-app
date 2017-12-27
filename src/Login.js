@@ -1,13 +1,12 @@
 import React, {Component} from 'react'
 import './App.css'
-import { connect } from 'react-redux'
-import { logIn } from './state/auth'
-
+import {connect} from 'react-redux'
+import {logIn} from './state/auth'
 
 class Login extends Component {
 
   state = {
-    showLoginForm: false,
+    showLoginForm: true,
     login: '',
     password: ''
   }
@@ -18,7 +17,6 @@ class Login extends Component {
       [formId]: !this.state[formId]
     })
   }
-
 
   handleChange = event => {
     this.setState({
@@ -39,7 +37,8 @@ class Login extends Component {
 
       <div className="login">
         <span className="login" onClick={this.toggleForm} data-form-id="showLoginForm">LOGOWANIE</span>
-        <form action="#" className={'login ' + (this.state.showLoginForm ? 'formvisible' : 'formhidden')} onSubmit={this.handleSubmit}>
+        <form action="#" className={'login ' + (this.state.showLoginForm ? 'formvisible' : 'formhidden')}
+              onSubmit={this.handleSubmit}>
           Login: <input type="text" name="login" onChange={this.handleChange}/> <br/>
           Hasło: <input type="password" name="password" onChange={this.handleChange}/> <br/>
           <input type="submit" value="Wyślij"/> <br/>

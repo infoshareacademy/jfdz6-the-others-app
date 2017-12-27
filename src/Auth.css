@@ -3,17 +3,41 @@
     color: antiquewhite;
 }
 
-#signup-login {
-    background-color: black;
-    color: antiquewhite;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 35px;
-    padding-top: 40px;
+#signup-login, .info div {
+    background-color: hsla(0, 0%, 100%, 0.5);
+    color: rgba(89, 77, 77, 1);
+    font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2vh;
     text-align: center;
+    border-radius: 5%;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.info div {
+    padding: 2em;
+}
+
+#signup-login {
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 5%;
 }
 
 #noLogin {
-    padding-bottom: 20px;
+    padding-bottom: 4%;
+}
+
+#signup-login-choice {
+    display: flex;
+}
+
+.signup, .login {
+    width: 50%;
 }
 
 .formhidden {
@@ -22,4 +46,115 @@
 
 .formvisible {
     display: block
+}
+
+#scroll-bg {
+    min-height: 100vh;
+    width: 100%;
+    background: url(Assets/Photos/cropped-girl-sitting-on-a-bus-14857.jpg) no-repeat scroll top;
+    background-size: cover;
+    background-color: hsla(0, 0%, 100%, 0.35);
+    background-blend-mode: overlay;
+    margin-top: -20px;
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes rotateInDownLeft {
+    from {
+        transform-origin: left bottom;
+        transform: rotate3d(0, 0, 1, -45deg);
+        opacity: 0;
+    }
+
+    to {
+        transform-origin: left bottom;
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.rotateInDownLeft {
+    animation-name: rotateInDownLeft;
+}
+
+/*Preview*/
+
+.preview-container {
+    display: flex;
+}
+
+.preview, .info {
+    width: 50%;
+    margin: 4%;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 3.0vw;
+    padding-top: 5%;
+    background-color: hsla(0, 0%, 100%, 0.5);
+}
+
+.preview-img, {
+    width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+	 h1 {
+	     font-size: 4.0vw;	 
+	 }
+}
+
+@media screen and (max-width: 768px) {
+	 .preview-container {
+	 	  display: block;
+	 	  align-items: center;
+	 }
+	 
+	 .preview {
+		  width: 60%;
+		  margin: 0 auto;	 
+	 }	 
+	 
+    .info {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+	 .info div {
+		  padding: 1.5em;	 
+	 }
+		
+    #signup-login {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+	 h1 {
+	     font-size: 6.0vw;	 
+	 }
+	
+}
+
+.img-responsive {
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+}
+
+/*The End of Preview*/
+
+footer {
+	 font-size: 1.5vh;
+	 padding-top: 10vh;
+    text-align: center;
+    bottom: 1%;
 }
