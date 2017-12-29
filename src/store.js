@@ -3,6 +3,7 @@ import persistState from 'redux-localstorage'
 import thunk from 'redux-thunk'
 import firebase from 'firebase'
 import auth from './state/auth'
+import buses from './state/buses'
 
 
 // Initialize Firebase
@@ -19,7 +20,7 @@ firebase.initializeApp(config);
 
 const reducer = combineReducers({
   auth,
-  data:[]
+  buses
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
