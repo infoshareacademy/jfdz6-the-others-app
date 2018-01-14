@@ -20,6 +20,10 @@ export default class LineList extends React.Component {
     });
   }
 
+  getList = (event) => {
+    console.log(event.target)
+  }
+
   render() {
     const { lines } = this.props;
 
@@ -31,6 +35,9 @@ export default class LineList extends React.Component {
         lines.map((line, index) =>
           <li key={index}>
             {line.name}
+            <button data-value="123" onClick={this.getList}>
+              Lista lini
+            </button>
           </li>)
       }
     </ul>);
