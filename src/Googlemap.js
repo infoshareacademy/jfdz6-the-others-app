@@ -2,6 +2,7 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import {connect} from 'react-redux'
 import googleMap from './state/googlemap';
+import { Stops } from './Stops';
 
 
 export class GoogleMap extends React.Component {
@@ -20,6 +21,9 @@ export class GoogleMap extends React.Component {
         defaultCenter={this.props.center}
         defaultZoom={this.props.zoom}
       >
+        <Stops {...this.props.stop1coords} text={'A'} />
+        <Stops {...this.props.stop2coords} text={'B'} />
+
       </GoogleMapReact>
     );
   }
@@ -27,7 +31,7 @@ export class GoogleMap extends React.Component {
 
 const mapStateToProps = state => ({
   googlemap: state.googlemap
-})
+});
 
 export default connect(
   mapStateToProps,
