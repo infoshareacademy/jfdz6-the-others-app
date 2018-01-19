@@ -30,7 +30,8 @@ class SignUp extends Component {
     event.preventDefault()
     this.props.signUp(
       this.state.login,
-      this.state.password
+      this.state.password,
+      this.state.username
     )
   }
 
@@ -40,6 +41,7 @@ class SignUp extends Component {
         <span className="signup" onClick={this.toggleForm} data-form-id="showSignUpForm">REJESTRACJA</span>
         <form action="#" className={'signup ' + (this.state.showSignUpForm ? 'formvisible' : 'formhidden')}
               onSubmit={this.handleSubmit}>
+          Imię: <input type="text" name="username" onChange={this.handleChange}/> <br/>
           E-mail: <input type="text" name="login" onChange={this.handleChange}/> <br/>
           Hasło: <input type="password" name="password" onChange={this.handleChange}/> <br/>
           <input type="submit" value="Wyślij"/> <br/>
@@ -54,7 +56,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  signUp: (email, password) => dispatch(signUp(email, password))
+  signUp: (email, password, username) => dispatch(signUp(email, password, username))
 })
 
 export default connect(

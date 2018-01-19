@@ -10,10 +10,14 @@ const initialState = {
   error: null
 }
 
-export const signUp = (email, password) => dispatch => {
+export const signUp = (email, password, username) => dispatch => {
   firebase.auth().createUserWithEmailAndPassword(
     email,
     password
+  ).
+  then(
+    user => {
+      firebase.database().ref('/users/' + user.uid).set(username)}
   ).then(
     data => dispatch({type: SET_USER, data})
   ).catch(

@@ -39,7 +39,7 @@ class Login extends Component {
         <span className="login" onClick={this.toggleForm} data-form-id="showLoginForm">LOGOWANIE</span>
         <form action="#" className={'login ' + (this.state.showLoginForm ? 'formvisible' : 'formhidden')}
               onSubmit={this.handleSubmit}>
-          Login: <input type="text" name="login" onChange={this.handleChange}/> <br/>
+          E-mail: <input type="text" name="login" onChange={this.handleChange}/> <br/>
           Hasło: <input type="password" name="password" onChange={this.handleChange}/> <br/>
           <input type="submit" value="Wyślij"/> <br/>
         </form>
