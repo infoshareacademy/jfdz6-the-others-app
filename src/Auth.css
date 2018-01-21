@@ -37,7 +37,7 @@
 }
 
 .signup, .login {
-    width: 50%;
+    width: 100%;
 }
 
 .formhidden {
@@ -153,8 +153,8 @@ h1 {
 /*The End of Preview*/
 
 footer {
-	 font-size: 1.5vh;
-	 padding-top: 10vh;
+	font-size: 1.5vh;
+	padding-top: 10vh;
     text-align: center;
     bottom: 1%;
 }

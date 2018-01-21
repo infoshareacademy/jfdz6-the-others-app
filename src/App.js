@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import './App.css';
+import Logout from './Logout'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header>
-kjhyjk
+          Witaj {this.props.auth.data.displayName}!
+          <Logout />
         </header>
       </div>
     );
@@ -14,4 +17,8 @@ kjhyjk
   }
 }
 
-export default App;
+export default connect(
+  state => ({
+    auth: state.auth
+  })
+)(App);

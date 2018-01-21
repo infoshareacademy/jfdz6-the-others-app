@@ -2,31 +2,60 @@ import firebase from 'firebase'
 
 const SET_USER = 'auth/SET_USER'
 const ERROR = 'auth/ERROR'
+const LOG_OUT = 'auth/LOG_OUT'
+
 
 const initialState = {
   data: null,
   error: null
 }
 
-export const signUp = (email, password) => dispatch => {
+let unsubscribe = null
+export const enableSync = () => dispatch => {
+  dispatch(disableSync())
+  unsubscribe = firebase.auth().onAuthStateChanged(
+    user => {
+      return dispatch({ type: SET_USER, data: user })
+    }
+  )
+}
+
+export const disableSync = () => dispatch => {
+  if (unsubscribe !== null) {
+    unsubscribe()
+  }
+}
+
+export const signUp = (email, password, username) => dispatch => {
   firebase.auth().createUserWithEmailAndPassword(
     email,
     password
   ).then(
-    data => dispatch({ type: SET_USER, data })
+    (user) => {
+      user.updateProfile({displayName: username, photoURL: ""}).then(
+        () => dispatch({type: SET_USER, data: {...user}})
+      ).catch( console.warn )
+    }
   ).catch(
-    error => dispatch({ type: ERROR, error })
+    error => dispatch({type: ERROR, error})
   )
 }
 
 export const logIn = (email, password) => dispatch => {
-  firebase.auth().signInWithEmailAndPassword(
+  firebase.auth().signInAndRetrieveDataWithEmailAndPassword(
     email,
     password
-  ).then(
-    data => dispatch({ type: SET_USER, data })
   ).catch(
-    error => dispatch({ type: ERROR, error })
+    error => dispatch({type: ERROR, error})
+  )
+}
+
+
+export const logOut = () => dispatch => {
+  firebase.auth().signOut().then(
+    () => dispatch({type: LOG_OUT})
+  ).catch(
+    error => dispatch({type: ERROR, error})
   )
 }
 
@@ -43,6 +72,8 @@ export default (state = initialState, action = {}) => {
         data: action.data,
         error: null
       }
+    case LOG_OUT:
+      return initialState
     case ERROR:
       return {
         ...state,
