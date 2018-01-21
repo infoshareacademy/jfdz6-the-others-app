@@ -8,7 +8,22 @@ import Login from './Login'
 import SignUp from './SignUp'
 
 class Auth extends Component {
+
+  state = {
+    showLogin: true
+  }
+
+  showLogin = () => {
+    this.setState({ showLogin: true})
+  }
+
+  showSignUp = () => {
+    this.setState({ showLogin: false})
+  }
+
   render() {
+
+
     return (
       <div>
         {
@@ -40,8 +55,11 @@ class Auth extends Component {
                   Aby korzystać z aplikacji, zaloguj się lub zarejestruj.
                 </div>
                 <div id="signup-login-choice">
-                  <Login/>
-                  <SignUp/>
+                  <span className="login" onClick={this.showLogin} data-form-id="showLoginForm">LOGOWANIE</span>
+                  <span className="signup" onClick={this.showSignUp} data-form-id="showSignUpForm">REJESTRACJA</span>
+
+                  <Login showLoginForm={this.state.showLogin}/>
+                  <SignUp showLoginForm={this.state.showLogin}/>
                 </div>
               </div>
               <footer>

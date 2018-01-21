@@ -6,7 +6,6 @@ import {logIn} from './state/auth'
 class Login extends Component {
 
   state = {
-    showLoginForm: true,
     login: '',
     password: ''
   }
@@ -36,8 +35,7 @@ class Login extends Component {
     return (
 
       <div className="login">
-        <span className="login" onClick={this.toggleForm} data-form-id="showLoginForm">LOGOWANIE</span>
-        <form action="#" className={'login ' + (this.state.showLoginForm ? 'formvisible' : 'formhidden')}
+        <form action="#" className={'login ' + (this.props.showLoginForm ? 'formvisible' : 'formhidden')}
               onSubmit={this.handleSubmit}>
           E-mail: <input type="text" name="login" onChange={this.handleChange}/> <br/>
           Hasło: <input type="password" name="password" onChange={this.handleChange}/> <br/>

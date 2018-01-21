@@ -7,7 +7,6 @@ import {signUp} from './state/auth'
 class SignUp extends Component {
 
   state = {
-    showSignUpForm: false,
     login: '',
     password: ''
   }
@@ -38,8 +37,7 @@ class SignUp extends Component {
   render() {
     return (
       <div className="signup">
-        <span className="signup" onClick={this.toggleForm} data-form-id="showSignUpForm">REJESTRACJA</span>
-        <form action="#" className={'signup ' + (this.state.showSignUpForm ? 'formvisible' : 'formhidden')}
+        <form action="#" className={'signup ' + (this.props.showLoginForm ? 'formhidden' : 'formvisible')}
               onSubmit={this.handleSubmit}>
           Imię: <input type="text" name="username" onChange={this.handleChange}/> <br/>
           E-mail: <input type="text" name="login" onChange={this.handleChange}/> <br/>

@@ -7,7 +7,7 @@ const Logout = ({shouldBeVisible, logOut}) => (
   <button
     onClick={logOut}
   >
-    Log out
+    Wyloguj
   </button>
 )
 
