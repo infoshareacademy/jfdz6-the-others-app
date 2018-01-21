@@ -2,6 +2,7 @@
   "name": "jfdz6-the-others-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://91.244.248.19",
   "dependencies": {
     "bootstrap": "^3.3.7",
     "firebase": "^4.8.0",
