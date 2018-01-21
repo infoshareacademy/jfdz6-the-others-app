@@ -1,8 +1,8 @@
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
-import persistState from 'redux-localstorage'
+// import persistState from 'redux-localstorage'
 import thunk from 'redux-thunk'
 import firebase from 'firebase'
-import auth from './state/auth'
+import auth, {enableSync} from './state/auth'
 
 
 // Initialize Firebase
@@ -25,7 +25,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const enhancer = composeEnhancers(
   applyMiddleware(thunk),
-  persistState([]/* config*/),
+  // persistState([]/* config*/),
 )
 
 const store = createStore(
@@ -34,6 +34,7 @@ const store = createStore(
 )
 
 store.dispatch({ type: 'RESET' })
+store.dispatch(enableSync())
 
 window.store = store
 

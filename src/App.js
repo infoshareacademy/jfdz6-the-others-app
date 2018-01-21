@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import './App.css';
 import Logout from './Logout'
 
@@ -7,6 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
+          Witaj {this.props.auth.data.displayName}!
           <Logout />
         </header>
       </div>
@@ -15,4 +17,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+  state => ({
+    auth: state.auth
+  })
+)(App);

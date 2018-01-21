@@ -10,27 +10,41 @@ const initialState = {
   error: null
 }
 
+let unsubscribe = null
+export const enableSync = () => dispatch => {
+  dispatch(disableSync())
+  unsubscribe = firebase.auth().onAuthStateChanged(
+    user => {
+      return dispatch({ type: SET_USER, data: user })
+    }
+  )
+}
+
+export const disableSync = () => dispatch => {
+  if (unsubscribe !== null) {
+    unsubscribe()
+  }
+}
+
 export const signUp = (email, password, username) => dispatch => {
   firebase.auth().createUserWithEmailAndPassword(
     email,
     password
-  ).
-  then(
-    user => {
-      firebase.database().ref('/users/' + user.uid).set(username)}
   ).then(
-    data => dispatch({type: SET_USER, data})
+    (user) => {
+      user.updateProfile({displayName: username, photoURL: ""}).then(
+        () => dispatch({type: SET_USER, data: {...user}})
+      ).catch( console.warn )
+    }
   ).catch(
     error => dispatch({type: ERROR, error})
   )
 }
 
 export const logIn = (email, password) => dispatch => {
-  firebase.auth().signInWithEmailAndPassword(
+  firebase.auth().signInAndRetrieveDataWithEmailAndPassword(
     email,
     password
-  ).then(
-    data => dispatch({type: SET_USER, data})
   ).catch(
     error => dispatch({type: ERROR, error})
   )
