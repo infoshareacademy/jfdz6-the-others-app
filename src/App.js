@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './App.css';
 import Logout from './Logout'
-import { GoogleMap } from './Googlemap'
+import GoogleMap from './Googlemap'
 
 class App extends Component {
   render() {

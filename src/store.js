@@ -3,6 +3,7 @@ import {applyMiddleware, combineReducers, compose, createStore} from 'redux'
 import thunk from 'redux-thunk'
 import firebase from 'firebase'
 import auth, {enableSync} from './state/auth'
+import googlemap from './state/googlemap'
 
 
 // Initialize Firebase
@@ -18,7 +19,8 @@ const config = {
 firebase.initializeApp(config);
 
 const reducer = combineReducers({
-  auth
+  auth,
+  googlemap
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
