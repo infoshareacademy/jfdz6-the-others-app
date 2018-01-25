@@ -7,9 +7,9 @@
     background-color: hsla(0, 0%, 100%, 0.5);
     color: rgba(89, 77, 77, 1);
     font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 2vh;
+    font-size: 2.2vh;
     text-align: center;
-    border-radius: 5%;
+    border-radius: 20%;
 }
 
 .info {
@@ -29,15 +29,48 @@
 }
 
 #noLogin {
-    padding-bottom: 4%;
+    padding: 5px 0px 5px 0px;
 }
 
 #signup-login-choice {
-    display: flex;
+    padding-bottom: 10px;
+    min-height: 160px;
 }
 
-.signup, .login {
+#signup-login-spans {
+    padding-bottom: 10px;
+}
+
+.signup, .login, #signup-login-spans {
     width: 100%;
+    margin: 5px 0px;
+}
+
+.signup, .login, .span-signup, .span-login {
+    font-weight: bold;
+}
+
+.span-signup, .span-login {
+    background-color: hsla(0, 5%, 100%, 0.6);
+    border-radius: 15%;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.span-signup:hover, .span-login:hover {
+    cursor: pointer;
+}
+
+.span-login {
+    margin-right: 20px;
+}
+
+.active {
+    border: 1px solid black;
+}
+
+.inactive {
+
 }
 
 .formhidden {
@@ -46,6 +79,11 @@
 
 .formvisible {
     display: block
+}
+
+.inputName {
+    width: 50px;
+    display: inline-block;
 }
 
 #scroll-bg {
@@ -97,7 +135,7 @@ h1 {
     font-weight: bold;
     color: white;
     font-size: 3.0vw;
-    padding-top: 5%;
+    padding: 5% 3% 2% 3%;
     background-color: hsla(0, 0%, 100%, 0.5);
 }
 

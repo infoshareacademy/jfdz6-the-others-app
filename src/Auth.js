@@ -14,11 +14,11 @@ class Auth extends Component {
   }
 
   showLogin = () => {
-    this.setState({ showLogin: true})
+    this.setState({showLogin: true});
   }
 
   showSignUp = () => {
-    this.setState({ showLogin: false})
+    this.setState({showLogin: false});
   }
 
   render() {
@@ -40,8 +40,7 @@ class Auth extends Component {
                   </div>
                   <div className="info">
                     <div>Witaj! Z nami zaplanujesz swoją podróż oraz dowiesz się czego zechcesz o
-                      transporcie publicznym w Gdańsku! Nasza aplikacja umożliwia wyznaczenie
-                      trasy między dowolnymi dwoma punktami, zawiera aktualne rozkłady jazdy i o
+                      transporcie publicznym w Gdańsku! Nasza aplikacja pokaże trasę dowolnej linii autobusowej i tramwajowej, zawiera aktualne rozkłady jazdy i o
                       wiele więcej!
                     </div>
                   </div>
@@ -55,9 +54,10 @@ class Auth extends Component {
                   Aby korzystać z aplikacji, zaloguj się lub zarejestruj.
                 </div>
                 <div id="signup-login-choice">
-                  <span className="login" onClick={this.showLogin} data-form-id="showLoginForm">LOGOWANIE</span>
-                  <span className="signup" onClick={this.showSignUp} data-form-id="showSignUpForm">REJESTRACJA</span>
-
+                  <div id="signup-login-spans">
+                    <span className={"span-login "+(this.state.showLogin ? "active" : "inactive")} onClick={this.showLogin} data-form-id="showLoginForm">LOGOWANIE</span>
+                    <span className={"span-signup "+(this.state.showLogin ? "inactive" : "active")} onClick={this.showSignUp} data-form-id="showSignUpForm">REJESTRACJA</span>
+                  </div>
                   <Login showLoginForm={this.state.showLogin}/>
                   <SignUp showLoginForm={this.state.showLogin}/>
                 </div>
