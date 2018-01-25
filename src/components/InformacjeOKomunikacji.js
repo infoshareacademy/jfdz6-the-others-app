@@ -10,13 +10,7 @@ class InformacjeOKomunikacji extends Component {
                 <h2>STUFF</h2>
                 <p>Mauris sem velit, vehicula eget sodales vitae,
                     rhoncus eget sapien:</p>
-                <ol>
-                    <li>Nulla pulvinar diam</li>
-                    <li>Facilisis bibendum</li>
-                    <li>Vestibulum vulputate</li>
-                    <li>Eget erat</li>
-                    <li>Id porttitor</li>
-                </ol>
+               <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus inventore iure libero modi natus sint ut. Accusamus assumenda aut facilis.</div>
             </div>
         );
     }

@@ -3,82 +3,43 @@ import './App.css';
 import {
     BrowserRouter as Router,
     Route,
-    Link
+    NavLink,
+
 } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
+import KomunikacjaMiejskaGdansk from "./components/KomunikacjaMiejskaGdansk";
+import RozkladJazdy from "./components/RozkladJazdy";
+import InformacjeOKomunikacji from "./components/InformacjeOKomunikacji";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-
-          const BasicExample = () => (
           <Router>
-              <div>
-                  <ul>
-                      <li><Link to="/">Home</Link></li>
-                      <li><Link to="/about">About</Link></li>
-                      <li><Link to="/topics">Topics</Link></li>
-                  </ul>
+              <div  id="container">
+                  <div className='animated fadeIn ' id="main-header">in-extremo </div>
+                  <div id="body">
 
-                  <hr/>
 
-                  <Route exact path="/" component={Home}/>
-                  <Route path="/about" component={About}/>
-                  <Route path="/topics" component={Topics}/>
+                      <ul className="header animated fadeIn" >
+                          <li><NavLink  exact to="/" activeClassName="active" >Komunikacja Miejska Gdansk</NavLink></li>
+                          <li><NavLink  to="/GIT" activeClassName="active">Rozklad Jazdy </NavLink></li>
+                          <li><NavLink  to="/HTML" activeClassName="active">Informacje o komunikacji</NavLink></li>
+                      </ul>
+
+
+                      <hr/>
+                      <div className="content">
+                          <Route path="/RozkladJazdy" component={RozkladJazdy}/>
+                          <Route path="/InformacjeOKomunikacji" component={InformacjeOKomunikacji}/>
+                      </div>
+                  </div>
+                  <Route exact path="/" component={KomunikacjaMiejskaGdansk}/>
+                  <button  id="myBtn">Top</button>
               </div>
           </Router>
-          )
-
-          const Home = () => (
-          <div>
-              <h2>Home</h2>
-          </div>
-          )
-
-          const About = () => (
-          <div>
-              <h2>About</h2>
-          </div>
-          )
-
-          const Topics = ({ match }) => (
-          <div>
-              <h2>Topics</h2>
-              <ul>
-                  <li>
-                      <Link to={`${match.url}/rendering`}>
-                          Rendering with React
-                      </Link>
-                  </li>
-                  <li>
-                      <Link to={`${match.url}/components`}>
-                          Components
-                      </Link>
-                  </li>
-                  <li>
-                      <Link to={`${match.url}/props-v-state`}>
-                          Props v. State
-                      </Link>
-                  </li>
-              </ul>
-
-              <Route path={`${match.url}/:topicId`} component={Topic}/>
-              <Route exact path={match.url} render={() => (
-                  <h3>Please select a topic.</h3>
-              )}/>
-          </div>
-          )
-
-          const Topic = ({ match }) => (
-          <div>
-              <h3>{match.params.topicId}</h3>
-          </div>
-          )
-
-          export default BasicExample
-
+          )}
 
       </div>
     );

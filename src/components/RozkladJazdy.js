@@ -14,7 +14,7 @@ class RozkladJazdy extends Component {
                     <li>Facilisis bibendum</li>
                     <li>Vestibulum vulputate</li>
                     <li>Eget erat</li>
-                    <li>Id porttitor</li>
+                    <li>Id Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem eius temporibus veniam!</li>
                 </ol>
             </div>
         );
