@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './App.css';
 import Logout from './Logout'
-import GoogleMap from './Googlemap'
+import AllStops from './AllStops'
+import ShowTrack from './ShowTrack'
 
 class App extends Component {
   render() {
@@ -11,11 +12,10 @@ class App extends Component {
         <header>
           Witaj {this.props.auth.data.displayName}!
           <Logout />
+          <AllStops />
 
         </header>
-        <div style={{width: '100%', height: '400px'}}>
-          <GoogleMap/>
-        </div>
+        <ShowTrack />
       </div>
     );
 
