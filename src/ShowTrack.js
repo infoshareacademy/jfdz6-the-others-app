@@ -1,24 +1,41 @@
 import React, { Component } from 'react'
 import { LinePicker } from './LinePicker'
 import GoogleMap from './Googlemap'
+import { getAllStops } from './state/stops'
+import { getStopsInTrip } from './state/stops'
+
 
 class ShowTrack extends Component {
 
+  componentDidMount() {
+    this.props.getAllStops();
+    this.props.getStopsInTrip();
+  }
+
   constructor(props) {
     super(props);
-    this.state = { line: 2 };
+    this.state = {
+      line: "2",
+      stopSequence: []
+    };
     this.changeLine = this.changeLine.bind(this);
   }
 
   changeLine(newLine) {
     this.setState({
-      line: newLine
+      line: newLine,
+      stopSequence: []
     })
   }
 
   
 
   render() {
+
+    const { dataStopsInTrip } = this.props.data_stops_in_trip;
+    const { dataStops } = this.props.data_stops;
+
+
     return (
       <div className="showTrack">
         Poniższa funkcjonalność umożliwia Ci zobaczenie trasy dowolnej linii tramwajowej lub autobusowej w Gdańsku!

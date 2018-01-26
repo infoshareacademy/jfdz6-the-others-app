@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { getStops } from './state/stops'
+import { getAllStops } from './state/stops'
 
 class AllStops extends React.Component {
 
   componentDidMount() {
-    this.props.getStops()
+    this.props.getAllStops()
   }
 
   render() {
@@ -15,7 +15,7 @@ class AllStops extends React.Component {
         ? <p>loading...</p>
         : (
           <div>
-            <h2>Przystanki</h2>
+            <h2>Stops</h2>
             <ul>
               {
                 stops.map(
@@ -24,16 +24,16 @@ class AllStops extends React.Component {
                       {stop.lastUpdate}
                       <ul>
                         {
-                          stop.routes.map(
-                            (route, index) => (
+                          stop.stops.map(
+                            (stop, index) => (
                               <li key={index}>
-                                {route.stopId}
+                                {stop.stopShortName}
                                 {' / '}
-                                {route.stopDesc}
+                                {stop.stopDesc}
                                 {' / '}
-                                {route.stopLat}
+                                {stop.stopLat}
                                 {' / '}
-                                {route.stopLon}
+                                {stop.stopLon}
                               </li>
                             )
                           )
@@ -51,11 +51,11 @@ class AllStops extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  stops: state.stops.data
+  stops: state.stops.data_stops
 })
 
 const mapDispatchToProps = dispatch => ({
-  getStops: () => dispatch(getStops())
+  getAllStops: () => dispatch(getAllStops())
 })
 
 export default connect(

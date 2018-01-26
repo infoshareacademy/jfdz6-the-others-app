@@ -12,7 +12,7 @@ class App extends Component {
         <header>
           Witaj {this.props.auth.data.displayName}!
           <Logout />
-          <AllStops />
+          {/*<AllStops />*/}
 
         </header>
         <ShowTrack />
