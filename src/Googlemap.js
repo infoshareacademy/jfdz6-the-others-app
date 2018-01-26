@@ -1,7 +1,7 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import {connect} from 'react-redux';
-import {Stops} from './Stops';
+import {DrawStops} from './DrawStops';
 
 
 class GoogleMap extends React.Component {
@@ -19,7 +19,7 @@ class GoogleMap extends React.Component {
       >
         {
           stops.map(
-            (stop, index) => <Stops {...stop} text={index + 1}/>
+            (stop, index) => <DrawStops {...stop} text={index + 1}/>
           )
         }
 
@@ -36,4 +36,3 @@ export default connect(
   mapStateToProps,
   null
 )(GoogleMap)
-

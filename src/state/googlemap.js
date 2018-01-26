@@ -4,6 +4,10 @@ const initialState = {
   stops: [{lat: 54.3500, lng: 18.6465}, {lat: 54.24356, lng: 18.33598}]
 };
 
+// const handleChange {
+//   stops:
+// }
+
 export default (state = initialState, action = {}) => {
   switch(action.type) {
     default:
