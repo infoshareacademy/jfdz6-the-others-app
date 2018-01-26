@@ -1,39 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { getAllStops } from './state/stops'
+import { getBus } from './state/buses'
 
-class AllStops extends React.Component {
+class Buses extends React.Component {
 
   componentDidMount() {
-    this.props.getAllStops()
+    this.props.getBus()
   }
 
   render() {
-    const { stops } = this.props
+    const { buses } = this.props
     return (
-      stops === null
+      buses === null
         ? <p>loading...</p>
         : (
           <div>
-            <h2>Stops</h2>
+            <h2>Bus routes</h2>
             <ul>
               {
-                stops.map(
-                  (stop, index) => (
+                buses.map(
+                  (bus, index) => (
                     <li key={index}>
-                      {stop.lastUpdate}
+                      {bus.lastUpdate}
                       <ul>
                         {
-                          stop.stops.map(
-                            (stop, index) => (
+                          bus.routes.map(
+                            (route, index) => (
                               <li key={index}>
-                                {stop.stopShortName}
+                                {route.routeShortName}
                                 {' / '}
-                                {stop.stopDesc}
+                                {route.routeLongName}
                                 {' / '}
-                                {stop.stopLat}
-                                {' / '}
-                                {stop.stopLon}
+                                {route.activationDate}
                               </li>
                             )
                           )
@@ -51,14 +49,14 @@ class AllStops extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  stops: state.stops.data
+  buses: state.buses.data
 })
 
 const mapDispatchToProps = dispatch => ({
-  getAllStops: () => dispatch(getAllStops())
+  getBus: () => dispatch(getBus())
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AllStops)
+)(Buses)
