@@ -1,21 +1,21 @@
-const ADD_BUS_STOP = 'Busys/ADD_BUS_STOP'
+const ADD_ALL_STOPS = 'ADD_ALL_STOPS'
 
-export const getBus = () => dispatch => {
+export const getAllStops = () => dispatch => {
     fetch(
-        '/dataset/c24aa637-3619-4dc2-a171-a23eec8f2172/resource/4128329f-5adb-4082-b326-6e1aea7caddf/download/routes.json'
+        '/dataset/c24aa637-3619-4dc2-a171-a23eec8f2172/resource/cd4c08b5-460e-40db-b920-ab9fc93c1a92/download/stops.json'
     ).then(
         response => response.json()
     ).then(
         resp => Object.values(resp).map(
-            ({lastUpdate, routes}) => ({
+            ({lastUpdate, stops}) => ({
                 lastUpdate,
-                routes: routes.map(
-                    ({routeShortName, routeLongName, activationDate}) => ({routeShortName, routeLongName, activationDate})
+                stops: stops.map(
+                    ({stopShortName, stopDesc, stopLat, stopLon}) => ({stopShortName, stopDesc, stopLat, stopLon})
                 )
             })
         )
     ).then(
-        data => dispatch({type: ADD_BUS_STOP, data})
+        data => dispatch({type: ADD_ALL_STOPS, data})
     ).catch(
         error => console.log(error)
     )
@@ -27,7 +27,7 @@ const initialState = {
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
-        case ADD_BUS_STOP:
+        case ADD_ALL_STOPS:
             return {
                 ...state,
                 data: action.data,
