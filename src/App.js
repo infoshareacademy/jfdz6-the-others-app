@@ -4,6 +4,7 @@ import './App.css';
 import Logout from './Logout'
 import AllStops from './AllStops'
 import ShowTrack from './ShowTrack'
+import GoogleMap from './Googlemap'
 
 class App extends Component {
   render() {
@@ -15,7 +16,11 @@ class App extends Component {
           {/*<AllStops />*/}
 
         </header>
-        <ShowTrack />
+        <div style={{width: '100%', height: '400px'}}>
+          <GoogleMap />
+        </div>
+        {/*<ShowTrack />*/}
+
       </div>
     );
 
