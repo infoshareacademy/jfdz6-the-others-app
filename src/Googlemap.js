@@ -4,10 +4,10 @@ import {connect} from 'react-redux';
 import {DrawStops} from './DrawStops';
 
 
-class GoogleMap extends React.Component {
+export class GoogleMap extends React.Component {
 
   render() {
-    const {stops, center, zoom} = this.props.googlemap
+    const {stops, center, zoom} = this.props.googlemap;
     return (
       <GoogleMapReact
         bootstrapURLKeys={{
@@ -19,7 +19,7 @@ class GoogleMap extends React.Component {
       >
         {
           stops.map(
-            (stop, index) => <DrawStops {...stop} text={index + 1}/>
+            (stop, index) => <DrawStops {...stop} text={index + 1} key={index+1}/>
           )
         }
 
