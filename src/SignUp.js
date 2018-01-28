@@ -39,10 +39,10 @@ class SignUp extends Component {
       <div className="signup">
         <form action="#" className={'signup ' + (this.props.showLoginForm ? 'formhidden' : 'formvisible')}
               onSubmit={this.handleSubmit}>
-          Imię: <input type="text" name="username" onChange={this.handleChange}/> <br/>
-          E-mail: <input type="text" name="login" onChange={this.handleChange}/> <br/>
-          Hasło: <input type="password" name="password" onChange={this.handleChange}/> <br/>
-          <input type="submit" value="Wyślij"/> <br/>
+          <span className="inputName">Imię: </span><input type="text" name="username" onChange={this.handleChange}/> <br/>
+          <span className="inputName">E-mail: </span><input type="text" name="login" onChange={this.handleChange}/> <br/>
+          <span className="inputName">Hasło: </span><input type="password" name="password" onChange={this.handleChange}/> <br/>
+          <input type="submit" value="Zarejestruj się"/> <br/>
         </form>
       </div>
     )
