@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './App.css';
+import {
+    BrowserRouter as Router,
+    Route,
+    NavLink,
+
+} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+import KomunikacjaMiejskaGdansk from "./components/KomunikacjaMiejskaGdansk";
+import RozkladJazdy from "./components/RozkladJazdy";
+import InformacjeOKomunikacji from "./components/InformacjeOKomunikacji";
 import Logout from './Logout'
 import AllStops from './AllStops'
 import ShowTrack from './ShowTrack'
@@ -10,16 +21,30 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header>
-          Witaj {this.props.auth.data.displayName}!
-          <Logout />
-          {/*<AllStops />*/}
+          <Router>
+              <div  id="container">
+                  <div className='animated fadeIn ' id="main-header">in-extremo </div>
+                  <div id="body">
 
-        </header>
-        <div style={{width: '100%', height: '400px'}}>
-          <GoogleMap />
-        </div>
-        {/*<ShowTrack />*/}
+
+                      <ul className="header animated fadeIn" >
+                          <li><NavLink  exact to="/" activeClassName="active" >Komunikacja Miejska Gdansk</NavLink></li>
+                          <li><NavLink  to="/GIT" activeClassName="active">Rozklad Jazdy </NavLink></li>
+                          <li><NavLink  to="/HTML" activeClassName="active">Informacje o komunikacji</NavLink></li>
+                      </ul>
+
+
+                      <hr/>
+                      <div className="content">
+                          <Route path="/RozkladJazdy" component={RozkladJazdy}/>
+                          <Route path="/InformacjeOKomunikacji" component={InformacjeOKomunikacji}/>
+                      </div>
+                  </div>
+                  <Route exact path="/" component={KomunikacjaMiejskaGdansk}/>
+                  <button  id="myBtn">Top</button>
+              </div>
+          </Router>
+          )}
 
       </div>
     );
