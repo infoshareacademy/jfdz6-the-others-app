@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import KomunikacjaMiejskaGdansk from "./components/KomunikacjaMiejskaGdansk";
 import RozkladJazdy from "./components/RozkladJazdy";
+import RozkladJazdy2 from "./components/RozkladJazdy2";
 import InformacjeOKomunikacji from "./components/InformacjeOKomunikacji";
 import Logout from './Logout'
 import AllStops from './AllStops'
@@ -29,13 +30,15 @@ class App extends Component {
 
                       <ul className="header animated fadeIn" >
                           <li><NavLink  exact to="/" activeClassName="active" >Komunikacja Miejska Gdansk</NavLink></li>
-                          <li><NavLink  to="/GIT" activeClassName="active">Rozklad Jazdy </NavLink></li>
-                          <li><NavLink  to="/HTML" activeClassName="active">Informacje o komunikacji</NavLink></li>
+                          {/*<li><NavLink  to="/RozkladJazdy" activeClassName="active">Rozklad Jazdy </NavLink></li>*/}
+                          <li><NavLink  to="/InformacjeOKomunikacji" activeClassName="active">Informacje o komunikacji</NavLink></li>
+                          <li><NavLink  to="/RozkladJazdyMin" activeClassName="active">Rozkład jazdy</NavLink></li>
                       </ul>
 
 
                       <hr/>
                       <div className="content">
+                          <Route path="/RozkladJazdyMin" component={RozkladJazdy2}/>
                           <Route path="/RozkladJazdy" component={RozkladJazdy}/>
                           <Route path="/InformacjeOKomunikacji" component={InformacjeOKomunikacji}/>
                       </div>
@@ -44,7 +47,6 @@ class App extends Component {
                   <button  id="myBtn">Top</button>
               </div>
           </Router>
-          )}
 
       </div>
     );
