@@ -4,6 +4,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
 import stops from './../stops'
 import tripstops from './../ts'
 // import initialState from './state/googlemap'
+import GoogleMap from './../Googlemap'
 
 class RozkladJazdy2 extends Component {
 
@@ -146,6 +147,9 @@ class RozkladJazdy2 extends Component {
                             {stops.map( e => <option key={e.stopId}>{e.stopName}</option> )}
                         </Input>
                     </FormGroup>}
+                </div>
+                <div style={{width: '100%', height: '400px'}}>
+                    <GoogleMap />
                 </div>
             </div>
         );
